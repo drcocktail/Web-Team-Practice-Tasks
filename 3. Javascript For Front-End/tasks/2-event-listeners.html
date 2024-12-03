@@ -63,67 +63,9 @@
 				e. On clicking "Export", the whole To-Do list will be copied to the clipboard. Each item will be separated by a newline.
 				Note: If a task is completed, it will be enclosed between two tilde (~). For Example: ~~Bully Goose for Work~~
 			*/
-		const taskInput = document.getElementById('task-input');
-		const addTaskButton = document.getElementById('add-task');
-		const toDoList = document.getElementById('to-do-list');
-		const exportButton = document.getElementById('export');
-
-		function addTask() {
-			const taskText = taskInput.value.trim();
-			if (taskText !== '') {
-				const taskItem = document.createElement('div');
-				taskItem.className = 'to-do-item';
-				taskItem.innerHTML = `
-					<span class="task-text">${taskText}</span>
-					<div class="buttons">
-						<button class="check-item-button">Check</button>
-						<button class="delet-item-button">Delete</button>
-					</div>
-				`;
-				toDoList.appendChild(taskItem);
-				taskInput.value = '';
-			}
-		}
-
-		taskInput.addEventListener('keypress', (event) => {
-			if (event.key === 'Enter') {
-				addTask();
-			}
-		});
-
-		addTaskButton.addEventListener('click', addTask);
-
-		toDoList.addEventListener('click', (event) => {
-			if (event.target.classList.contains('check-item-button')) {
-				const taskText = event.target.closest('.to-do-item').querySelector('.task-text');
-				taskText.classList.toggle('checked');
-			} else if (event.target.classList.contains('delet-item-button')) {
-				const taskItem = event.target.closest('.to-do-item');
-				toDoList.removeChild(taskItem);
-			}
-		});
-
-		exportButton.addEventListener('click', () => {
-			let tasks = '';
-			document.querySelectorAll('.to-do-item').forEach(item => {
-				const taskText = item.querySelector('.task-text').textContent;
-				if (item.querySelector('.task-text').classList.contains('checked')) {
-					tasks += `~~${taskText}~~\n`;
-				} else {
-					tasks += `${taskText}\n`;
-				}
-			});
-			navigator.clipboard.writeText(tasks.trim());
-		});
 		});
 	</script>
 </head>
-<style>
-	.checked {
-		text-decoration: line-through;
-		opacity: 0.5;
-	}
-</style>
 <body>
 	<div id="root">
 		<!-- Task 1 HTML -->

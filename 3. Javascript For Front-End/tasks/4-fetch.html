@@ -41,21 +41,6 @@
 		
         You may use an async function and await the fetch request, or use .then-catch to process the data.
         */
-        document.getElementById('toss').addEventListener('click', toss);
-
-        async function toss() {
-            try {
-                const response = await fetch('http://localhost:6969/toss');
-                if (response.status === 400) {
-                    document.getElementById('info').innerText = 'Error: Unable to fetch the result.';
-                } else if (response.status === 200) {
-                    const result = await response.text();
-                    document.getElementById('info').innerText = `You got a ${result}`;
-                }
-            } catch (error) {
-                document.getElementById('info').innerText = 'Error: Unable to fetch the result.';
-            }
-        }
         
 	</script>
 </head>

@@ -40,33 +40,13 @@
         3. Define a function `submitName()` which will show a promt to the user "Enter your name".
         If the user fills the name, display "Hello `name`, Welcome to the club" in the div with ID `info`.
         */
-    function hello() {
-        alert("Hello from EES");
-    }
-
-    function choose(ele) {
-        const choice = ele.innerText;
-        if (confirm(`Do you like ${choice}?`)) {
-            document.getElementById('favourite').innerHTML = `So you like ${choice}..... hmmmmmmmm`;
-            document.getElementById('favourite').style.display = 'block';
-        }
-    }
-
-    function submitName() {
-        const name = prompt("Enter your name");
-        if (name) {
-            document.getElementById('info').innerHTML = `Hello ${name}, Welcome to the club`;
-            document.getElementById('info').style.display = 'block';
-        }
-    }
-
 	</script>
 </head>
 <body>
 	<div id="root">
         <!-- Task 1: Alert -->
 		<div class="container">
-            <h1>Welcome to EES</h1>
+            <h1>Welcome to MASK</h1>
             <button onclick="hello()">Say Hello</button>
         </div>
 
